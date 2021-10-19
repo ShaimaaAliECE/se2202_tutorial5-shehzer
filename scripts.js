@@ -3,6 +3,9 @@ let nextPlayer = 'X'; // takes a value of either 'X' or 'O' according to the gam
 //initialize the game
 
 // use the value stored in the nextPlayer variable to indicate who the next player is
+let initNextPlayer = document.getElementById('next-lbl')
+
+initNextPlayer.innerText = " " + nextPlayer
 
 
 //This call will create the buttons needed for the gameboard.
@@ -11,6 +14,13 @@ createGameBoard()
 function createGameBoard()
 {
     // Programatically add a button with square brackets enclosing an empty space to each cell in the gameboard
+    gameTag = document.getElementsByTagName('td')
+
+    for( let i = 0; i<gameTag.length; i++){
+        let btn = document.createElement('button')
+        btn.innerText = "[ ]"
+        gameTag[i].appendChild(btn)
+    }
    
 }
 
