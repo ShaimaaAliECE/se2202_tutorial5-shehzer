@@ -57,9 +57,11 @@ function takeCell(event)
     if (isGameOver())
     {
         // let the lable with the id 'game-over-lbl' display the words 'Game Over' inside <h1> element
-        h1Lbl = document.createElement("h1")
-        gameOverLbl = document.getElementById('game-over-lbl')
-        gameOverLbl.appendChild(h1Lbl).appendChild("Game Over")
+        let h1Lbl = document.createElement("h1")
+        let gameOverText = document.createTextNode("Game Over")
+        h1Lbl.appendChild(gameOverText)
+        let gameOverLbl = document.getElementById('game-over-lbl')
+        gameOverLbl.appendChild(h1Lbl)
     }
 
     // I'll leave declaring the winner for your intrinsic motivation, it's not required for this assignment 
