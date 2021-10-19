@@ -80,7 +80,7 @@ function isGameOver()
         }
     }
 
-    if(disabled == 9){
+    if(isDisabled == 9){
         return true
     }
     return false
