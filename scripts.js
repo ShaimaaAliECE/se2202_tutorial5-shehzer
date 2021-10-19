@@ -34,23 +34,53 @@ for (let i=0; i<btns.length; i++)
 // This function will be used to respond to a click event on any of the board buttons.
 function takeCell(event)
 {
+    
     /*
         When the button is clicked, the space inside its square brackets is replaced by the value in the nextPlayer before switching it
     */
+    event.target.innerText = "[" + nextPlayer + "]"
+     // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
+    event.target.disabled = true
 
-    // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
+    if(nextPlayer == 'X'){
+        nextPlayer = 'O'
+    }
+    else{
+        nextPlayer = 'X'
+    }
+
+    initNextPlayer.innerText = " " + nextPlayer;
+
+   
 
     // Check if the game is over
     if (isGameOver())
     {
         // let the lable with the id 'game-over-lbl' display the words 'Game Over' inside <h1> element
+        h1Lbl = document.createElement("h1")
+        gameOverLbl = document.getElementById('game-over-lbl')
+        gameOverLbl.appendChild(h1Lbl).innerText("Game Over")
     }
 
     // I'll leave declaring the winner for your intrinsic motivation, it's not required for this assignment 
 }
 
+
+//count the number of disabled buttons
 function isGameOver()
 {
     // This function returns true if all the buttons are disabled and false otherwise 
+    let isDisabled = 0
+
+    for(let i=0; i<btns.length; i++){
+        if(btns[i].disabled){
+            isDisabled++
+        }
+    }
+
+    if(disabled == 9){
+        return true
+    }
+    return false
    
 }
